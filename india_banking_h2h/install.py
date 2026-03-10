@@ -14,7 +14,6 @@ def after_install():
 def create_default_banks():
 	click.echo(" -> Creating Default Banks")
 	for bank in STD_BANK_LIST:
-		print("bank****", bank)
 		if not frappe.db.exists("Bank", bank):
 			bank_doc = frappe.new_doc("Bank")
 			bank_doc.bank_name = bank
@@ -83,5 +82,4 @@ def create_bank_doctype():
 				},
 			],
 		}
-		print("doc****", doc)
 		frappe.call("frappe.client.insert", doc=doc)
